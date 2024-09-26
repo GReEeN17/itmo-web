@@ -1,22 +1,33 @@
 /* Базовые настройки для всего документа */
 body {
     margin: 0;
-    padding: 0;
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     background-color: #f5f5f5;
     color: #333;
+    padding: 80px 0 0;  /* Чтобы контент не перекрывался шапкой / lab-3 */
 }
 
 /* Стили для заголовка сайта */
-.header {
+/* lab-2 */
+/*.header {
     text-align: center;
     padding: 20px;
     background-color: #4CAF50;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-transform: uppercase;
+}*/
+
+/* lab-3 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4CAF50;
+    z-index: 100; /* Для обеспечения, что шапка будет над другими элементами */
 }
 
 .header h1 {
@@ -216,3 +227,108 @@ code {
     font-family: 'Courier New', monospace;
     font-size: 0.9em;
 }
+
+
+/* lab-3 */
+
+/* Flexbox для шапки и навигации */
+.header, .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__list {
+    display: flex;
+    gap: 20px; /* Расстояние между элементами навигации */
+}
+
+/* Grid для карточек мест */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивные колонки */
+    gap: 20px;
+}
+
+/* Настройки для экранов больших и стандартных размеров */
+@media screen and (max-width: 1920px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .nav__list-item a {
+        font-size: 1.2em;
+    }
+}
+
+/* Настройки для ноутбуков с маленьким экраном */
+@media screen and (max-width: 1366px) {
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .nav__list-item a {
+        font-size: 1em;
+    }
+
+    /* Скрытие элемента, например рекламного баннера */
+    .footer__banner {
+        display: none;
+    }
+}
+
+/* Настройки для мобильных экранов */
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 1.2em;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards {
+        grid-template-columns: 1fr; /* Отображение одной колонки на маленьких экранах */
+    }
+}
+
+
+/* Основной стиль для таблицы */
+table.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table.responsive-table th,
+table.responsive-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Четные и нечетные строки */
+table.responsive-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.responsive-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Заголовки */
+table.responsive-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Grid для таблицы для адаптивности */
+@media screen and (max-width: 768px) {
+    table.responsive-table {
+        display: block;
+        overflow-x: auto; /* Прокрутка для маленьких экранов */
+    }
+}
+
+

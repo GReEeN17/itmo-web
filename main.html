@@ -10,93 +10,82 @@
 </head>
 <body>
 
-<!-- Header с названием сайта -->
-<header>
+<header class="header">
     <h1>Идеи для выходных</h1>
 </header>
 
-<!-- Основная часть сайта -->
-<main>
-    <!-- Навигация -->
-    <nav>
-        <ul>
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Места</a></li>
-            <li><a href="#">Категории</a></li>
-            <li><a href="#">Контакты</a></li>
+<div class="container">
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__list-item"><a href="#">Главная</a></li>
+            <li class="nav__list-item"><a href="#">Места</a></li>
+            <li class="nav__list-item"><a href="#">Категории</a></li>
+            <li class="nav__list-item"><a href="#">Контакты</a></li>
         </ul>
     </nav>
 
-    <!-- Меню категорий -->
-    <aside>
-        <h2>Категории</h2>
-        <ul>
-            <li><a href="#">Еда</a></li>
-            <li><a href="#">Музеи</a></li>
-            <li><a href="#">Природа</a></li>
-            <li><a href="#">Развлечения</a></li>
-        </ul>
-    </aside>
+    <main class="content">
+        <aside class="categories">
+            <h2>Категории</h2>
+            <div class="categories__scroll">
+                <ul class="categories__list">
+                    <li class="categories__list-item"><a href="#">Еда</a></li>
+                    <li class="categories__list-item"><a href="#">Музеи</a></li>
+                    <li class="categories__list-item"><a href="#">Природа</a></li>
+                    <li class="categories__list-item"><a href="#">Развлечения</a></li>
+                </ul>
+            </div>
+        </aside>
 
-    <!-- Секция с карточками мест -->
-    <div class="cards">
-        <div class="cards__item">
-            <img src="place1.jpeg" alt="Место 1" class="cards__image">
-            <h3>Место 1</h3>
-            <p>Описание места 1</p>
+
+        <div class="cards">
+            <div class="cards__item">
+                <img src="place1.jpeg" alt="Место 1" class="cards__image">
+                <h3>Место 1</h3>
+                <p>Описание места 1</p>
+            </div>
+            <div class="cards__item">
+                <img src="place2.jpeg" alt="Место 2" class="cards__image">
+                <h3>Место 2</h3>
+                <p>Описание места 2</p>
+            </div>
+            <div class="cards__item">
+                <img src="place3.jpeg" alt="Место 3" class="cards__image">
+                <h3>Место 3</h3>
+                <p>Описание места 3</p>
+            </div>
         </div>
-        <div class="cards__item">
-            <img src="place2.jpeg" alt="Место 2" class="cards__image">
-            <h3>Место 2</h3>
-            <p>Описание места 2</p>
-        </div>
-        <div class="cards__item">
-            <img src="place3.jpeg" alt="Место 3" class="cards__image">
-            <h3>Место 3</h3>
-            <p>Описание места 3</p>
-        </div>
-    </div>
 
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th>Место</th>
+                <th>Описание</th>
+                <th>Рейтинг</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Музей</td>
+                <td>Интересное место для посещения</td>
+                <td>4.5</td>
+            </tr>
+            <tr>
+                <td>Ресторан</td>
+                <td>Отличная еда и сервис</td>
+                <td>4.8</td>
+            </tr>
+            <tr>
+                <td>Парк</td>
+                <td>Приятное место для прогулки</td>
+                <td>4.2</td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
 
-    <!-- Информация об аккаунте пользователя -->
-    <section>
-        <h2>Аккаунт пользователя</h2>
-        <p>Имя пользователя: User</p>
-        <p><a href="#">Редактировать профиль</a></p>
-    </section>
-
-    <!-- lab-3 -->
-    <table class="responsive-table">
-        <thead>
-        <tr>
-            <th>Место</th>
-            <th>Описание</th>
-            <th>Рейтинг</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Музей</td>
-            <td>Интересное место для посещения</td>
-            <td>4.5</td>
-        </tr>
-        <tr>
-            <td>Ресторан</td>
-            <td>Отличная еда и сервис</td>
-            <td>4.8</td>
-        </tr>
-        <tr>
-            <td>Парк</td>
-            <td>Приятное место для прогулки</td>
-            <td>4.2</td>
-        </tr>
-        </tbody>
-    </table>
-
-</main>
-
-<!-- Footer с контактной информацией -->
-<footer>
+<footer class="footer">
     <h3>Контактная информация</h3>
     <p>Email: info@example.com</p>
     <p>Телефон: +7 900 123 45 67</p>
@@ -104,35 +93,3 @@
 
 </body>
 </html>
-
-
-<!--<section>
-    <h2>Псевдографика</h2>
-    <pre>
-    ╔═══════════╗
-    ║  Сайт     ║
-    ╚═══════════╝
-    </pre>
-</section>
-
-<section>
-    <h2>Пример кода на Go</h2>
-    <pre>
-    package main
-
-    import "fmt"
-
-    func main() {
-        fmt.Println("Hello, World!")
-    }
-    </pre>
-</section>
-
-<section>
-    <h2>Цитата</h2>
-    <blockquote>
-        "Успех приходит к тем, кто верит в себя."
-    </blockquote>
-    <p>Формула успеха: Успех = Усилия<sup>Настойчивость</sup> / Сомнения</p>
-</section>-->
-

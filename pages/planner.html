@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Планировщик посещения мест на неделю.">
+    <meta name="keywords" content="планировщик, посещение, места, неделя">
+    <title>Планировщик мест на неделю</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/planner.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <h1>Планировщик посещения мест</h1>
+</header>
+
+<div class="scroll-container">
+    <div class="container">
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__list-item"><a href="../index.html">Главная</a></li>
+                <li class="nav__list-item"><a href="places.html">Места</a></li>
+                <li class="nav__list-item"><a href="categories.html">Категории</a></li>
+                <li class="nav__list-item"><a href="contacts.html">Контакты</a></li>
+                <li class="nav__list-item"><a href="planner.html" class="active">Планировщик</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <h2>Запланируйте ваши посещения на неделю</h2>
+            <form id="plannerForm">
+                <label for="minPlaces">Минимальное количество посещенных мест:</label>
+                <input type="number" id="minPlaces" name="minPlaces" min="1" required>
+
+                <label for="transport">Способ передвижения:</label>
+                <select id="transport" name="transport" required>
+                    <option value="пешком">Пешком</option>
+                    <option value="на машине">На машине</option>
+                    <option value="на общественном транспорте">На общественном транспорте</option>
+                </select>
+
+                <button type="submit">Сгенерировать план</button>
+            </form>
+
+            <div id="resultContainer" class="result-container"></div>
+        </main>
+    </div>
+</div>
+
+<footer class="footer">
+    <h3>Контактная информация</h3>
+    <p>Email: info@example.com</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p id="loadTime"></p>
+</footer>
+</body>
+</html>

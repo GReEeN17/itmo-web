@@ -1,38 +1,49 @@
-/* Основные стили */
-body {
+html, body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    background-color: #f5f5f5;
-    color: #333;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Отключаем глобальную прокрутку */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    position: fixed; /* Закрепляем header наверху */
+    top: 0;
+    left: 0;
+    width: 100%; /* Header занимает всю ширину */
+    z-index: 1000; /* Чтобы header был выше других элементов */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для отделения header */
+}
+
+.scroll-container {
+    margin-top: 100px; /* Отступ от шапки */
+    height: calc(100vh - 100px); /* Высота блока с учетом высоты header */
+    overflow-y: auto; /* Прокрутка внутри контейнера */
+    padding: 20px;
+    box-sizing: border-box;
+    flex-grow: 1;
 }
 
 .container {
     display: flex;
-}
-
-/* Шапка */
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    z-index: 100;
+    flex-direction: column;
 }
 
 .nav {
     position: fixed;
-    top: 80px;
+    top: 100px; /* Отступ от header */
     left: 0;
     width: 200px;
-    height: 100%;
+    height: calc(100vh - 100px); /* Высота навигации с учетом высоты header */
     background-color: #333;
     padding: 20px;
     z-index: 50;
+    overflow-y: auto; /* Добавляем прокрутку к навигации, если она превышает высоту */
 }
 
 .nav__list {
@@ -57,8 +68,9 @@ body {
 }
 
 .content {
-    margin-left: 220px;
+    margin-left: 220px; /* Отступ от навигации */
     padding: 20px;
+    flex-grow: 1;
 }
 
 .categories {
@@ -137,6 +149,7 @@ body {
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    text-align: center;
 }
 
 .cards__image {
@@ -145,16 +158,15 @@ body {
     border-radius: 8px;
 }
 
-/* Footer */
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
     text-align: center;
-    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Мобилки */
 @media screen and (max-width: 768px) {
     .nav {
         width: 100px;
@@ -209,3 +221,10 @@ table.responsive-table th {
         overflow-x: auto;
     }
 }
+
+.nav__list-item a.active {
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: underline;
+}
+

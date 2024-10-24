@@ -40,3 +40,28 @@
         });
     });
 })();
+
+const swiper = new Swiper('.swiper-container', {
+    // Параметры Swiper
+    slidesPerView: 2, // Количество слайдов, отображаемых одновременно
+    spaceBetween: 10, // Расстояние между слайдами
+    centeredSlides: true, // Центрирование активного слайда
+    pagination: {
+        el: '.swiper-pagination', // Элемент для пагинации
+        clickable: true, // Возможность клика по пагинации
+    },
+    navigation: {
+        nextEl: '.swiper-button-next', // Кнопка "следующий"
+        prevEl: '.swiper-button-prev', // Кнопка "предыдущий"
+    },
+    breakpoints: {
+        // Настройки для различных размеров экрана
+        768: {
+            slidesPerView: 2, // 2 слайда на экранах шире 768px
+        },
+        1200: {
+            slidesPerView: 3, // 3 слайда на экранах шире 1200px
+        },
+    },
+});
+

@@ -283,4 +283,23 @@ form button:hover {
     background-color: #f9f9f9;
 }
 
+.swiper-container {
+    width: 100%;
+    height: 300px; /* Выберите подходящую высоту */
+    margin: auto;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #4CAF50; /* Измените цвет кнопок на ваш */
+}
+
+
 

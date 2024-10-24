@@ -7,6 +7,8 @@
     <title>Идеи для выходных - Главная</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts/main.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 </head>
 <body>
 <header class="header">
@@ -27,22 +29,29 @@
         <main class="content">
             <h2>Добро пожаловать на наш сайт!</h2>
             <p>Здесь вы найдете лучшие идеи для того, как провести выходные с семьей или друзьями.</p>
-            <div class="cards">
-                <div class="cards__item">
-                    <img src="place1.jpeg" alt="Природный парк" class="cards__image">
-                    <h3>Природный парк</h3>
-                    <p>Насладитесь природой и тишиной в этом удивительном месте.</p>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="place1.jpeg" alt="Природный парк" class="cards__image">
+                        <h3>Природный парк</h3>
+                        <p>Насладитесь природой и тишиной в этом удивительном месте.</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="place2.jpeg" alt="Музей искусства" class="cards__image">
+                        <h3>Музей искусства</h3>
+                        <p>Посетите музей с великолепной коллекцией современного искусства.</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="place3.jpeg" alt="Ресторан" class="cards__image">
+                        <h3>Ресторан</h3>
+                        <p>Попробуйте лучшие блюда из местной кухни.</p>
+                    </div>
                 </div>
-                <div class="cards__item">
-                    <img src="place2.jpeg" alt="Музей искусства" class="cards__image">
-                    <h3>Музей искусства</h3>
-                    <p>Посетите музей с великолепной коллекцией современного искусства.</p>
-                </div>
-                <div class="cards__item">
-                    <img src="place3.jpeg" alt="Ресторан" class="cards__image">
-                    <h3>Ресторан</h3>
-                    <p>Попробуйте лучшие блюда из местной кухни.</p>
-                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </main>
     </div>

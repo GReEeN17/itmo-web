@@ -1,12 +1,9 @@
-// scripts/places.js
 document.addEventListener("DOMContentLoaded", () => {
     const preloader = document.getElementById("preloader");
     const placesContainer = document.getElementById("placesContainer");
 
-    // Показываем preloader
     preloader.style.display = 'block';
 
-    // Генерация случайного условия для фильтрации
     const randomCondition = Math.random() < 0.5; // true или false
     const url = randomCondition
         ? 'https://jsonplaceholder.typicode.com/comments?id_gte=100'
@@ -32,10 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 
-// Функция для отображения загруженных данных
 function renderPlaces(data) {
     const placesContainer = document.getElementById("placesContainer");
-    placesContainer.innerHTML = ''; // Очищаем контейнер
+    placesContainer.innerHTML = '';
 
     data.forEach(item => {
         const placeElement = document.createElement('div');

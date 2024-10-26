@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("plannerForm");
     const resultContainer = document.getElementById("resultContainer");
+    const removeFormButton = document.getElementById("removeFormButton");
 
     const storedMinPlaces = localStorage.getItem("minPlaces");
     const storedTransport = localStorage.getItem("transport");
@@ -52,5 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             resultContainer.appendChild(daySchedule);
         });
+
+        form.style.display = "none";
+        removeFormButton.style.display = "inline";
     }
+
+    removeFormButton.addEventListener("click", () => {
+        form.style.display = "block";
+        removeFormButton.style.display = "none";
+        resultContainer.innerHTML = "";
+    });
 });

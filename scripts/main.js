@@ -35,25 +35,23 @@
 })();
 
 const swiper = new Swiper('.swiper-container', {
-    // Параметры Swiper
-    slidesPerView: 2, // Количество слайдов, отображаемых одновременно
-    spaceBetween: 10, // Расстояние между слайдами
-    centeredSlides: true, // Центрирование активного слайда
+    slidesPerView: 2,
+    spaceBetween: 10,
+    centeredSlides: true,
     pagination: {
-        el: '.swiper-pagination', // Элемент для пагинации
-        clickable: true, // Возможность клика по пагинации
+        el: '.swiper-pagination',
+        clickable: true,
     },
     navigation: {
-        nextEl: '.swiper-button-next', // Кнопка "следующий"
-        prevEl: '.swiper-button-prev', // Кнопка "предыдущий"
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-        // Настройки для различных размеров экрана
         768: {
-            slidesPerView: 2, // 2 слайда на экранах шире 768px
+            slidesPerView: 2,
         },
         1200: {
-            slidesPerView: 3, // 3 слайда на экранах шире 1200px
+            slidesPerView: 3,
         },
     },
 });

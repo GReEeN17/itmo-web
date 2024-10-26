@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     preloader.style.display = 'block';
 
-    const randomCondition = Math.random() < 0.5; // true или false
+    const randomCondition = Math.random() < 0.5;
     const url = randomCondition
         ? 'https://jsonplaceholder.typicode.com/comments?id_gte=100'
         : 'https://jsonplaceholder.typicode.com/comments?id_lte=200';
@@ -17,9 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(data => {
-            // Скрываем preloader
             preloader.style.display = 'none';
-            // Отображаем данные
             renderPlaces(data);
         })
         .catch(error => {

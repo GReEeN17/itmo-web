@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Генерация случайного условия для фильтрации
     const randomCondition = Math.random() < 0.5; // true или false
     const url = randomCondition
-        ? 'https://jsonplaceholder.typicode.com/comments?id_gte=100' // ID >= 100
-        : 'https://jsonplaceholder.typicode.com/comments?id_lte=200'; // ID <= 200
+        ? 'https://jsonplaceholder.typicode.com/comments?id_gte=100'
+        : 'https://jsonplaceholder.typicode.com/comments?id_lte=200';
 
     fetch(url)
         .then(response => {

@@ -30,16 +30,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function generateSchedule(minPlaces, transport) {
         const daysOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
-        resultContainer.innerHTML = ""; // Очищаем предыдущий результат
 
-        const schedule = daysOfWeek.map(day => {
-            return `<div class="day-schedule">
-                        <h3>${day}</h3>
-                        <p>Минимум ${minPlaces} мест(а) посещено.</p>
-                        <p>Способ передвижения: ${transport}</p>
-                    </div>`;
-        }).join("");
+        // Очищаем предыдущий результат
+        resultContainer.innerHTML = "";
 
-        resultContainer.innerHTML = `<h2>Ваш план на неделю:</h2>${schedule}`;
+        // Заголовок "Ваш план на неделю"
+        const title = document.createElement("h2");
+        title.textContent = "Ваш план на неделю:";
+        resultContainer.appendChild(title);
+
+        // Создаём расписание на каждый день недели
+        daysOfWeek.forEach(day => {
+            const daySchedule = document.createElement("div");
+            daySchedule.classList.add("day-schedule");
+
+            const dayTitle = document.createElement("h3");
+            dayTitle.textContent = day;
+            daySchedule.appendChild(dayTitle);
+
+            const placesInfo = document.createElement("p");
+            placesInfo.textContent = `Минимум ${minPlaces} мест(а) посещено.`;
+            daySchedule.appendChild(placesInfo);
+
+            const transportInfo = document.createElement("p");
+            transportInfo.textContent = `Способ передвижения: ${transport}`;
+            daySchedule.appendChild(transportInfo);
+
+            // Добавляем блок дня в контейнер с результатами
+            resultContainer.appendChild(daySchedule);
+        });
     }
 });

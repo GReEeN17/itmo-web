@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const storedMinPlaces = localStorage.getItem("minPlaces");
     const storedTransport = localStorage.getItem("transport");
+    const storedSchedule = localStorage.getItem("schedule");
 
     if (storedMinPlaces) {
         document.getElementById("minPlaces").value = storedMinPlaces;
@@ -12,6 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (storedTransport) {
         document.getElementById("transport").value = storedTransport;
+    }
+
+    if (storedSchedule) {
+        resultContainer.innerHTML = storedSchedule; // Восстановление плана из localStorage
+        form.style.display = "none";
+        removeFormButton.style.display = "inline";
     }
 
     form.addEventListener("submit", (event) => {
@@ -35,6 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
         title.textContent = "Ваш план на неделю:";
         resultContainer.appendChild(title);
 
+        let scheduleHtml = ""; // Хранит HTML-код плана
+
         daysOfWeek.forEach(day => {
             const daySchedule = document.createElement("div");
             daySchedule.classList.add("day-schedule");
@@ -52,7 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
             daySchedule.appendChild(transportInfo);
 
             resultContainer.appendChild(daySchedule);
+            scheduleHtml += daySchedule.outerHTML;
         });
+
+        localStorage.setItem("schedule", scheduleHtml);
 
         form.style.display = "none";
         removeFormButton.style.display = "inline";
@@ -62,5 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
         form.style.display = "block";
         removeFormButton.style.display = "none";
         resultContainer.innerHTML = "";
+        localStorage.removeItem("schedule");
     });
 });

@@ -22,22 +22,36 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             preloader.style.display = 'none';
-            placesContainer.innerHTML = '<p>⚠ Что-то пошло не так.</p>';
+
+            const errorElement = document.createElement('p');
+            errorElement.textContent = '⚠ Что-то пошло не так.';
+            placesContainer.appendChild(errorElement);
+
             console.error('Ошибка:', error);
         });
 });
 
 function renderPlaces(data) {
     const placesContainer = document.getElementById("placesContainer");
-    placesContainer.innerHTML = '';
+
+    while (placesContainer.firstChild) {
+        placesContainer.removeChild(placesContainer.firstChild);
+    }
 
     data.forEach(item => {
         const placeElement = document.createElement('div');
         placeElement.className = 'place-item';
-        placeElement.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>${item.body}</p>
-        `;
+
+        const titleElement = document.createElement('h3');
+        titleElement.textContent = item.name;
+
+        const bodyElement = document.createElement('p');
+        bodyElement.textContent = item.body;
+
+
+        placeElement.appendChild(titleElement);
+        placeElement.appendChild(bodyElement);
+
         placesContainer.appendChild(placeElement);
     });
 }

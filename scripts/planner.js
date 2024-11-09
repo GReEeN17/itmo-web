@@ -16,7 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (storedSchedule) {
-        resultContainer.innerHTML = storedSchedule; // Восстановление плана из localStorage
+        const scheduleElements = JSON.parse(storedSchedule);
+        scheduleElements.forEach(daySchedule => {
+            const dayScheduleDiv = document.createElement("div");
+            dayScheduleDiv.classList.add("day-schedule");
+
+            const dayTitle = document.createElement("h3");
+            dayTitle.textContent = daySchedule.day;
+            dayScheduleDiv.appendChild(dayTitle);
+
+            const placesInfo = document.createElement("p");
+            placesInfo.textContent = `Минимум ${daySchedule.minPlaces} мест(а) посещено.`;
+            dayScheduleDiv.appendChild(placesInfo);
+
+            const transportInfo = document.createElement("p");
+            transportInfo.textContent = `Способ передвижения: ${daySchedule.transport}`;
+            dayScheduleDiv.appendChild(transportInfo);
+
+            resultContainer.appendChild(dayScheduleDiv);
+        });
         form.style.display = "none";
         removeFormButton.style.display = "inline";
     }
@@ -36,35 +54,43 @@ document.addEventListener("DOMContentLoaded", () => {
     function generateSchedule(minPlaces, transport) {
         const daysOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
 
-        resultContainer.innerHTML = "";
+        while (resultContainer.firstChild) {
+            resultContainer.removeChild(resultContainer.firstChild);
+        }
 
         const title = document.createElement("h2");
         title.textContent = "Ваш план на неделю:";
         resultContainer.appendChild(title);
 
-        let scheduleHtml = ""; // Хранит HTML-код плана
+        const scheduleArray = [];
 
         daysOfWeek.forEach(day => {
-            const daySchedule = document.createElement("div");
-            daySchedule.classList.add("day-schedule");
+            const daySchedule = {
+                day: day,
+                minPlaces: minPlaces,
+                transport: transport
+            };
+
+            const dayScheduleDiv = document.createElement("div");
+            dayScheduleDiv.classList.add("day-schedule");
 
             const dayTitle = document.createElement("h3");
             dayTitle.textContent = day;
-            daySchedule.appendChild(dayTitle);
+            dayScheduleDiv.appendChild(dayTitle);
 
             const placesInfo = document.createElement("p");
             placesInfo.textContent = `Минимум ${minPlaces} мест(а) посещено.`;
-            daySchedule.appendChild(placesInfo);
+            dayScheduleDiv.appendChild(placesInfo);
 
             const transportInfo = document.createElement("p");
             transportInfo.textContent = `Способ передвижения: ${transport}`;
-            daySchedule.appendChild(transportInfo);
+            dayScheduleDiv.appendChild(transportInfo);
 
-            resultContainer.appendChild(daySchedule);
-            scheduleHtml += daySchedule.outerHTML;
+            resultContainer.appendChild(dayScheduleDiv);
+            scheduleArray.push(daySchedule);
         });
 
-        localStorage.setItem("schedule", scheduleHtml);
+        localStorage.setItem("schedule", JSON.stringify(scheduleArray));
 
         form.style.display = "none";
         removeFormButton.style.display = "inline";
@@ -73,7 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
     removeFormButton.addEventListener("click", () => {
         form.style.display = "block";
         removeFormButton.style.display = "none";
-        resultContainer.innerHTML = "";
+        while (resultContainer.firstChild) {
+            resultContainer.removeChild(resultContainer.firstChild);
+        }
         localStorage.removeItem("schedule");
     });
 });
